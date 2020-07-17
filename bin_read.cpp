@@ -8,14 +8,14 @@ uint32_t * bin_read(char * file_name)
 	fp = fopen(file_name, "rb");
 	uint8_t buffer[4]={0,};
 
-	fread(&buffer[0], sizeof(uint8_t), 1, fp);
-	fread(&buffer[1], sizeof(uint8_t), 1, fp);
-	fread(&buffer[2], sizeof(uint8_t), 1, fp);
-	fread(&buffer[3], sizeof(uint8_t), 1, fp);
+	for(int i=0;i<4;i++)
+	{
+		fread(&buffer[i], sizeof(uint8_t), 1, fp); // read binary value from input file (Network Byte Order)
+	}
 
-	uint32_t *val = reinterpret_cast<uint32_t *>(buffer);
+	uint32_t *val = reinterpret_cast<uint32_t *>(buffer); // aggregate array values into one 4byte value
+	
 	fclose(fp);
-
 	return val;	
 }
 
