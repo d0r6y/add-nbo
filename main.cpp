@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <arpa/inet.h> // for ntohl function
-#include "bin_read.h"
+#include "bin_read.h" // Use 'bin_read' custom function (reads binary data from input file)
 
 int main(int argc, char * argv[])
 {	
